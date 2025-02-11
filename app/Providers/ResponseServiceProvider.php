@@ -27,9 +27,9 @@ class ResponseServiceProvider extends ServiceProvider
         $factory->macro('sendResponse', function ($data = false, $message = '') use ($factory) {
 
             $format = [
-                'success' => true,
+                'state' => true,
                 'code' => HttpCodes::OK,
-                'data' => $message,
+                'message' => $message,
             ];
 
             $format['data'] = $data ?? [];
@@ -48,7 +48,7 @@ class ResponseServiceProvider extends ServiceProvider
         $factory->macro('sendError', function ($code, $message = '', $data = []) use ($factory) {
 
             $false = [
-                'success' => false,
+                'state' => false,
                 'code' => $code,
                 'message' => $message,
             ];
